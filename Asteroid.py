@@ -58,7 +58,7 @@ def get_random_velocity(min_speed, max_speed):
     return Vector2(speed, 0).rotate(angle)
 
 
-def __init__(self, position):
+def __init__(position):
     super().__init__(
         position, load_sprite("asteroid"), get_random_velocity(1, 3)
     )
