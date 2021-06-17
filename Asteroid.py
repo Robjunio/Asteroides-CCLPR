@@ -1,9 +1,7 @@
 import pygame
 import random
 from models import Asteroid, Spaceship
-from pygame.image import load
 from pygame.math import Vector2
-from pygame.transform import rotozoom
 from utils import get_random_velocity, load_sprite, wrap_position
 
 
