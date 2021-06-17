@@ -1,0 +1,2 @@
+#shot mechanics
+print("shot")
