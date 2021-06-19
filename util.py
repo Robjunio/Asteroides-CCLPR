@@ -1,4 +1,3 @@
-import sys
 import pygame
 
 
@@ -10,10 +9,10 @@ def quit():
     pygame.quit()
     exit()
 
-    
+
 # Color's
 WHITE = (255, 255, 255)
-BLACK  = (0, 0, 0)
+BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
 RED = (255, 0, 0)
 
@@ -22,3 +21,7 @@ starting_pos = (0, 0)
 
 # Reset Values
 new_score = 0
+
+# Screen Size
+WINDOW_WIDTH = 600
+WINDOW_HEIGHT = 600
