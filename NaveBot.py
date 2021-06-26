@@ -9,6 +9,7 @@ class Ship:
         self.x = x
         self.y = y
         self.life = life
+        self.ship_img = None
         self.shoot = []
         self.cool_down_counter = 0
 
