@@ -13,6 +13,7 @@ class SpaceShip(object):
         self.sprite = pygame.image.load("assets/space_ship.png")
         self.direction = Vector2(0, -1)
         self.radius = self.sprite.get_width() / 2
+        self.angle = 90
         self.velocity = Vector2(velocity)
 
     def draw(self, surface):
@@ -33,12 +34,20 @@ class SpaceShip(object):
         return distance < self.radius + other_obj.radius
 
     def shot_bullet(self):
-        return playershot()
+        return playershot(bullet_angle=self.angle, bullet_pos=self.position)
 
     def rotate(self, clockwise=True):
         sign = 15 if clockwise else -15
-        angle = self.maneuverability * sign
-        self.direction.rotate_ip(angle)
+        angle_to_rotate = self.maneuverability * sign
+
+        self.angle -= angle_to_rotate
+
+        if self.angle == 360 and clockwise == False:
+            self.angle = 0
+        elif self.angle == 0 and clockwise == True:
+            self.angle = 360
+
+        self.direction.rotate_ip(angle_to_rotate)
 
     def stop(self):
         self.velocity -= self.direction * self.acceleration
