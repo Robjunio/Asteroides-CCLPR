@@ -3,13 +3,9 @@ import assets
 from pygame.math import Vector2
 from pygame.transform import rotozoom
 
-class Spaceship(GameObject):
-    MANEUVERABILITY = 3
-    ACCELERATION = 0.25
-    bullet_speed = 3
-
-class playershot(GameObject):
+class Shot():
     def __init__(self, bullet_speed, bullet_pos):
+<<<<<<< HEAD
         super().__init__(bullet_speed, load_sprite("bullet"), bullet_speed)
 
 def __init__(self):
@@ -158,5 +154,17 @@ def _process_game_logic(self):
     for bullet in self.bullets[:]:
 
         if not self.screen.get_rect().collidepoint(bullet.position):
+=======
+        self.bullet_speed = bullet_speed
+        self.bullet_pos = bullet_pos
+        self.sprite = pygame.image.load("assets/bullet.png")
+        self.radius = self.sprite.get_width() / 2
+    
+    def draw(self, surface):
+        blit_position = self.bullet_pos - Vector2(self.radius)
+        surface.blit(self.sprite, blit_position)
+    
+    def move(self):
+        self.bullet_pos += self.bullet_speed
+>>>>>>> 35ea1a1f00e719fc443a9e9fcbe4bd697764d440
 
-            self.bullets.remove(bullet)

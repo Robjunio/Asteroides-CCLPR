@@ -1,5 +1,5 @@
 import pygame
-from pygame.constants import QUIT, KEYDOWN, K_RIGHT, K_LEFT, K_UP, K_DOWN
+from pygame.constants import K_SPACE, QUIT, KEYDOWN, K_RIGHT, K_LEFT, K_UP, K_DOWN
 from pygame.math import Vector2
 
 from SpaceShip import SpaceShip
@@ -14,6 +14,8 @@ if __name__ == '__main__':
         position=Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2),
         velocity=Vector2(0, 0)
     )
+
+    ship_bullets = []
 
     is_running = True
 
@@ -34,6 +36,12 @@ if __name__ == '__main__':
                     ship.accelerate()
                 elif event.key == K_DOWN:
                     ship.stop()
+                elif event.key == K_SPACE:
+                    ship_bullets.append(ship.shot_bullet())
+
+        for bullet in ship_bullets:
+            bullet.move()
+            bullet.draw(screen)
 
         ship.move(surface=screen)
         ship.draw(screen)
