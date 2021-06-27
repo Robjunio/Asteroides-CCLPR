@@ -39,7 +39,7 @@ def _get_game_objects(self):
     if self.spaceship:
         game_objects.append(self.spaceship)
 
-    raturn game_objects
+    return game_objects
 
 def __init__(self, position, create_bullet_callback):
     self.create_bullet_callback = create_bullet_callback
