@@ -13,3 +13,7 @@ class Shot():
     def draw(self, surface):
         blit_position = self.bullet_pos - Vector2(self.radius)
         surface.blit(self.sprite, blit_position)
+    
+    def move(self):
+        self.bullet_pos += self.bullet_speed
+

@@ -39,8 +39,8 @@ if __name__ == '__main__':
                 elif event.key == K_SPACE:
                     ship_bullets.append(ship.shot_bullet())
 
-
         for bullet in ship_bullets:
+            bullet.move()
             bullet.draw(screen)
 
         ship.move(surface=screen)
