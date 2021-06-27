@@ -15,6 +15,8 @@ if __name__ == '__main__':
         velocity=Vector2(0, 0)
     )
 
+    ship_bullets = []
+
     is_running = True
 
     while is_running:
@@ -35,7 +37,8 @@ if __name__ == '__main__':
                 elif event.key == K_DOWN:
                     ship.stop()
                 elif event.key == K_SPACE:
-                    ship.shot_bullet()
+                    ship_bullets.append(ship.shot_bullet())
+
 
         ship.move(surface=screen)
         ship.draw(screen)
