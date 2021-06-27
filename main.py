@@ -40,6 +40,9 @@ if __name__ == '__main__':
                     ship_bullets.append(ship.shot_bullet())
 
 
+        for bullet in ship_bullets:
+            bullet.draw(screen)
+
         ship.move(surface=screen)
         ship.draw(screen)
         pygame.display.flip()

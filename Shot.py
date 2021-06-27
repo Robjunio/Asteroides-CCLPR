@@ -9,3 +9,7 @@ class Shot():
         self.bullet_pos = bullet_pos
         self.sprite = pygame.image.load("assets/bullet.png")
         self.radius = self.sprite.get_width() / 2
+    
+    def draw(self, surface):
+        blit_position = self.bullet_pos - Vector2(self.radius)
+        surface.blit(self.sprite, blit_position)
