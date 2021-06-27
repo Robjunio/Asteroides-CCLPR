@@ -2,7 +2,7 @@ import pygame
 from pygame.math import Vector2
 from pygame.transform import rotozoom
 
-from Shot import playershot
+from Shot import Shot
 
 
 class SpaceShip(object):
@@ -34,7 +34,7 @@ class SpaceShip(object):
         return distance < self.radius + other_obj.radius
 
     def shot_bullet(self):
-        return playershot(bullet_angle=self.angle, bullet_pos=self.position)
+        return Shot(bullet_pos=self.position, bullet_speed=self.velocity)
 
     def rotate(self, clockwise=True):
         sign = 15 if clockwise else -15
