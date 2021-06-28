@@ -18,17 +18,8 @@ if __name__ == '__main__':
         velocity=Vector2(0, 0)
     )
 
-    shipBot = ShipBot(
-        position=get_random_position(screen),
-        velocity=get_random_velocity(1, 5)
-    )
-
     ship_bullets = []
-    asteroids = []
-    asteroids.append(Asteroid(
-        asteroid_speed=get_random_velocity(1, 3),
-        asteroid_pos=get_random_position(screen)
-    ))
+    
     is_running = True
 
     while is_running:
