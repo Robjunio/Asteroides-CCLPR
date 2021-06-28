@@ -1,4 +1,6 @@
 import pygame
+import random
+from pygame.math import Vector2
 
 
 def collision(pos1, pos2):
@@ -10,7 +12,12 @@ def quit():
     exit()
 
 
-# Color's
+def get_random_position(surface):
+    return Vector2(
+        random.randrange(surface.get_width()),
+        random.randrange(surface.get_height()),
+    )
+        # Color's
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)

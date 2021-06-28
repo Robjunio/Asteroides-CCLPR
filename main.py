@@ -1,8 +1,9 @@
 import pygame
+import random
 from Asteroid import Asteroid
 from pygame.constants import K_SPACE, QUIT, KEYDOWN, K_RIGHT, K_LEFT, K_UP, K_DOWN
 from pygame.math import Vector2
-
+from util import get_random_position
 from SpaceShip import SpaceShip
 from util import WINDOW_WIDTH, WINDOW_HEIGHT
 
@@ -19,7 +20,7 @@ if __name__ == '__main__':
     ship_bullets = []
     asteroids = []
     asteroids.append(Asteroid(
-        Vector2(0,0),Vector2(50,50)
+        Vector2(0,0),get_random_position(screen)
     ))
     is_running = True
 
