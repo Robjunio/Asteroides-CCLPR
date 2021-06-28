@@ -17,3 +17,7 @@ class Asteroid:
 
     def move(self):
         self.asteroid_pos += self.asteroid_speed
+
+    def collides_with(self, other_obj):
+        distance = self.asteroid_pos.distance_to(other_obj.bullet_pos)
+        return distance < self.radius + other_obj.radius

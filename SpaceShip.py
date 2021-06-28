@@ -30,7 +30,7 @@ class SpaceShip(object):
         self.position = self.wrap_position((self.position + self.velocity), surface)
 
     def collides_with(self, other_obj):
-        distance = self.position.distance_to(other_obj.position)
+        distance = self.position.distance_to(other_obj.asteroid_pos)
         return distance < self.radius + other_obj.radius
 
     def shot_bullet(self):
