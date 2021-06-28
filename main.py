@@ -50,6 +50,9 @@ if __name__ == '__main__':
             asteroid.draw(screen)
             if ship.collides_with(asteroid) is True:
                 is_running = False
+            for bullet in ship_bullets:
+                if asteroid.collides_with(bullet) is True:
+                    asteroids.remove(asteroid)
 
         for bullet in ship_bullets:
             bullet.move()
