@@ -19,6 +19,7 @@ if __name__ == '__main__':
     )
 
     ship_bullets = []
+    asteroids = []
     
     is_running = True
 
@@ -49,17 +50,15 @@ if __name__ == '__main__':
                 is_running = False
             for bullet in ship_bullets:
                 if asteroid.collides_with(bullet) is True:
-                    asteroids.remove(asteroid)
+                    asteroid.remove(asteroid)
 
         for bullet in ship_bullets:
             bullet.move()
             bullet.draw(screen)
-            if (bullet.is_colliding_with_wall() == True):
+            if bullet.is_colliding_with_wall():
                 ship_bullets.remove(bullet)
 
         ship.move(surface=screen)
         ship.draw(screen)
-        shipBot.draw(screen)
-        shipBot.move()
         pygame.display.flip()
         screen.fill((0, 0, 0))
