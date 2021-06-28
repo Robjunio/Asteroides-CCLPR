@@ -1,4 +1,4 @@
-from Shot import playershot
+from Shot import Shot
 import pygame
 from util import WINDOW_HEIGHT
 
@@ -36,6 +36,6 @@ class Ship:
 
     def shoot(self):
         if self.cool_down_counter == 0:
-            shoot = playershot(self.x, self.y)
+            shoot = Shot(self.x, self.y)
             self.shoots.append(shoot)
             self.cool_down_counter = 1
