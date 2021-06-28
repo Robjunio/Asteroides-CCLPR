@@ -3,10 +3,8 @@ from pygame.constants import K_SPACE, QUIT, KEYDOWN, K_RIGHT, K_LEFT, K_UP, K_DO
 from pygame.math import Vector2
 
 from Asteroid import Asteroid
-from ShipBot import ShipBot
 from SpaceShip import SpaceShip
-from util import WINDOW_WIDTH, WINDOW_HEIGHT
-from util import get_random_position, get_random_velocity
+from util import WINDOW_WIDTH, WINDOW_HEIGHT, get_random_velocity, get_random_position
 
 if __name__ == '__main__':
     pygame.init()
@@ -20,7 +18,15 @@ if __name__ == '__main__':
 
     ship_bullets = []
     asteroids = []
-    
+
+    for i in range(0, 6):
+        asteroids.append(
+            Asteroid(
+                asteroid_speed=get_random_velocity(1, 3),
+                asteroid_pos=get_random_position(screen )
+            )
+        )
+
     is_running = True
 
     while is_running:
@@ -50,7 +56,7 @@ if __name__ == '__main__':
                 is_running = False
             for bullet in ship_bullets:
                 if asteroid.collides_with(bullet) is True:
-                    asteroid.remove(asteroid)
+                    asteroids.remove(asteroid)
 
         for bullet in ship_bullets:
             bullet.move()
