@@ -14,3 +14,6 @@ class Asteroid:
     def draw(self, surface):
         blit_position = self.asteroid_pos - Vector2(self.radius)
         surface.blit(self.sprite, blit_position)
+
+    def move(self):
+        self.asteroid_pos += self.asteroid_speed

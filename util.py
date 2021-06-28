@@ -17,7 +17,14 @@ def get_random_position(surface):
         random.randrange(surface.get_width()),
         random.randrange(surface.get_height()),
     )
-        # Color's
+
+
+def get_random_velocity(min_speed, max_speed):
+    speed = random.randint(min_speed, max_speed)
+    return Vector2(speed, 0)
+
+
+# Color's
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
