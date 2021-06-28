@@ -42,6 +42,8 @@ if __name__ == '__main__':
         for bullet in ship_bullets:
             bullet.move()
             bullet.draw(screen)
+            if(bullet.is_colliding_with_wall() == True):
+                ship_bullets.remove(bullet)
 
         ship.move(surface=screen)
         ship.draw(screen)

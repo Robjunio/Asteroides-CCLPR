@@ -17,3 +17,11 @@ class Shot():
     def move(self):
         self.bullet_pos += self.bullet_speed
 
+    def is_colliding_with_wall(self):
+        if self.bullet_pos[0] > 600 or self.bullet_pos[1] > 600:
+            return True
+        elif self.bullet_pos[0] < 0 or self.bullet_pos[1] < 0:
+            return True
+        else:
+            return False
+
