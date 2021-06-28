@@ -1,11 +1,12 @@
 import pygame
-import random
-from Asteroid import Asteroid
 from pygame.constants import K_SPACE, QUIT, KEYDOWN, K_RIGHT, K_LEFT, K_UP, K_DOWN
 from pygame.math import Vector2
-from util import get_random_position, get_random_velocity
+
+from Asteroid import Asteroid
+from ShipBot import ShipBot
 from SpaceShip import SpaceShip
 from util import WINDOW_WIDTH, WINDOW_HEIGHT
+from util import get_random_position, get_random_velocity
 
 if __name__ == '__main__':
     pygame.init()
@@ -17,11 +18,16 @@ if __name__ == '__main__':
         velocity=Vector2(0, 0)
     )
 
+    shipBot = ShipBot(
+        position=get_random_position(screen),
+        velocity=get_random_velocity(1, 5)
+    )
+
     ship_bullets = []
     asteroids = []
     asteroids.append(Asteroid(
-        asteroid_speed = get_random_velocity(1,3),
-        asteroid_pos = get_random_position(screen)
+        asteroid_speed=get_random_velocity(1, 3),
+        asteroid_pos=get_random_position(screen)
     ))
     is_running = True
 
@@ -52,10 +58,12 @@ if __name__ == '__main__':
         for bullet in ship_bullets:
             bullet.move()
             bullet.draw(screen)
-            if(bullet.is_colliding_with_wall() == True):
+            if (bullet.is_colliding_with_wall() == True):
                 ship_bullets.remove(bullet)
 
         ship.move(surface=screen)
         ship.draw(screen)
+        shipBot.draw(screen)
+        shipBot.move()
         pygame.display.flip()
         screen.fill((0, 0, 0))
